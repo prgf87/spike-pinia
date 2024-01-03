@@ -3,7 +3,7 @@
     <!-- <h1>Home</h1> -->
     <div class="count">{{ count }}</div>
     <div class="buttons">
-      <button>-</button>
+      <button @click="decreaseCount">-</button>
       <button @click="increaseCount">+</button>
     </div>
   </div>
@@ -14,8 +14,10 @@ import { ref } from 'vue'
 const count = ref(0)
 
 const increaseCount = () => {
-  console.log('Increase Count')
   count.value++
+}
+const decreaseCount = () => {
+  count.value--
 }
 </script>
 
