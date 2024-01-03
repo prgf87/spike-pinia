@@ -3,10 +3,21 @@ import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
+
+  function increaseCount() {
     count.value++
   }
+  function decreaseCount() {
+    count.value--
+  }
 
-  return { count, doubleCount, increment }
+  const oddEven = computed(() => {
+    return count.value % 2 === 0 ? 'Even' : 'Odd'
+  })
+
+  const doubleCount = computed(() => {
+    return count.value * 2
+  })
+
+  return { count, increaseCount, decreaseCount, oddEven, doubleCount }
 })
